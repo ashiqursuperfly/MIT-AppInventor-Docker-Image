@@ -1,0 +1,24 @@
+#|
+$Source $Yail
+|#
+
+(define-form appinventor.ai_anonymuser.TextBoxOnly.Screen1 Screen1 #t)
+(require <com.google.youngandroid.runtime>)
+
+;;; Screen1
+
+(do-after-form-creation (set-and-coerce-property! 'Screen1 'AppName "TextBoxOnly" 'text)
+ (set-and-coerce-property! 'Screen1 'Scrollable #t 'boolean)
+ (set-and-coerce-property! 'Screen1 'ShowListsAsJson #t 'boolean)
+ (set-and-coerce-property! 'Screen1 'Sizing "Responsive" 'text)
+ (set-and-coerce-property! 'Screen1 'Title "Screen1" 'text)
+)
+
+;;; TextBox1
+
+(add-component Screen1 com.google.appinventor.components.runtime.TextBox TextBox1 
+(set-and-coerce-property! 'TextBox1 'Hint "Hint for TextBox1" 'text)
+
+)
+
+(init-runtime)

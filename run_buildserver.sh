@@ -1,0 +1,1 @@
+sudo docker exec text2app_aia_1 bash -c "cd buildserver && ant RunLocalBuildServer"
