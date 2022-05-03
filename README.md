@@ -46,19 +46,20 @@ sudo docker-compose up --build
 ### Common Usages
 #### 1. Running the BuildServer
 ```
-sudo docker exec ${CONTAINER_ID} bash -c "cd buildserver && ant RunLocalBuildServer"
+sudo docker exec ${container_id} bash -c "cd buildserver && ant RunLocalBuildServer"
 ```
 #### 2. Running the MainServer
 ```
-sudo docker exec ${CONTAINER_ID} bash -c "/opt/appengine/appengine-java-sdk-1.9.68/bin/dev_appserver.sh --port=8888 --address=0.0.0.0 appengine/build/war/"
+sudo docker exec ${container_id} bash -c "/opt/appengine/appengine-java-sdk-1.9.68/bin/dev_appserver.sh --port=8888 --address=0.0.0.0 appengine/build/war/"
 ```
 #### 3. Building APK file
 ```bash
 app_name=$1
 zip_name=$2
+container_id=$3
 bash zipper.sh ${app_name} ${zip_name}
-sudo docker cp ./$2 ${CONTAINER_ID}:/home/Text2App/appinventor/buildserver/
-sudo docker exec ${CONTAINER_ID} bash -c "cd /home/Text2App/appinventor/buildserver/ && ant RunMain -Dzip.file=./${zip_name} -Duser.name=t2a -Doutput.dir=./"
-sudo docker cp ${CONTAINER_ID}:/home/Text2App/appinventor/buildserver/${app_name}.apk ./${app_name}.apk
+sudo docker cp ./$2 ${container_id}:/home/Text2App/appinventor/buildserver/
+sudo docker exec ${container_id} bash -c "cd /home/Text2App/appinventor/buildserver/ && ant RunMain -Dzip.file=./${zip_name} -Duser.name=t2a -Doutput.dir=./"
+sudo docker cp ${container_id}:/home/Text2App/appinventor/buildserver/${app_name}.apk ./${app_name}.apk
 ```
 <img src="https://img.shields.io/docker/pulls/ashiqursuperfly/appinventor">
