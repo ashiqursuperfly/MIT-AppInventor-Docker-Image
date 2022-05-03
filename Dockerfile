@@ -19,7 +19,6 @@ RUN chown -R Text2App:Text2App /home/Text2App
 RUN chmod -R 755 /home/Text2App
 
 COPY ./appinventor-sources /home/Text2App/
-# USER Text2App
 
 WORKDIR /home/Text2App/appinventor
 RUN git config --global --add safe.directory /home/Text2App
@@ -29,7 +28,7 @@ RUN git submodule update --init
 RUN ant
 
 # RUN cat <<EOF > /usr/local/bin/start_appinventor ant RunLocalBuildServer &> buildserver.log & BUILDSERVER=$! /opt/appengine/appengine-java-sdk-1.9.68/bin/dev_appserver.sh -p 8888 -a 0.0.0.0 appengine/build/war kill -9 -- -$BUILDSERVER EOF
-
 # RUN chmod +x /usr/local/bin/start_appinventor
 
+USER Text2App
 CMD tail -f /dev/null
