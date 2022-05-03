@@ -1,1 +1,2 @@
-sudo docker exec text2app_aia_1 bash -c "cd buildserver && ant RunLocalBuildServer"
+container_id=$1
+sudo docker exec ${container_id} bash -c "cd buildserver && ant RunLocalBuildServer"
