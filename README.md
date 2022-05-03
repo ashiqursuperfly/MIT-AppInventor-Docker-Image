@@ -1,6 +1,12 @@
 ## MIT App Inventor Docker Image
 
-### Building the image from [DockerHub](https://hub.docker.com/r/ashiqursuperfly/appinventor)
+This repo contains the Dockerfile and some usage scripts for the open source project:
+
+[<img src="https://appinventor.mit.edu/images/logo.png" width=160 height=66/>](https://github.com/mit-cml/appinventor-sources)
+
+### Building the image from DockerHub
+[<img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original-wordmark.svg" width=200 height=66/>](https://hub.docker.com/r/ashiqursuperfly/appinventor)
+
 ```
 docker pull ashiqursuperfly/appinventor
 ```
@@ -35,10 +41,10 @@ services:
 ```
 And to run it:
 ```
-sudo docker-compose up --build up
+sudo docker-compose up --build
 ```
 
-### Usage
+### Common Usages
 #### 1. Running the BuildServer
 ```
 sudo docker exec ${CONTAINER_ID} bash -c "cd buildserver && ant RunLocalBuildServer"
