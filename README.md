@@ -1,5 +1,4 @@
 ## MIT App Inventor Docker Image
-
 This repo contains the Dockerfile and some usage scripts for the open source project:
 
 [<img src="https://appinventor.mit.edu/images/logo.png" width=160 height=66/>](https://github.com/mit-cml/appinventor-sources)
@@ -62,3 +61,4 @@ sudo docker cp ./$2 text2app_aia_1:/home/Text2App/appinventor/buildserver/
 sudo docker exec text2app_aia_1 bash -c "cd /home/Text2App/appinventor/buildserver/ && ant RunMain -Dzip.file=./${zip_name} -Duser.name=t2a -Doutput.dir=./"
 sudo docker cp text2app_aia_1:/home/Text2App/appinventor/buildserver/${app_name}.apk ./${app_name}.apk
 ```
+<img src="https://img.shields.io/docker/pulls/ashiqursuperfly/appinventor">
