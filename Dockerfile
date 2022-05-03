@@ -5,10 +5,8 @@ RUN dpkg --add-architecture i386
 RUN apt-get clean && apt-get update && apt-get upgrade -y
 RUN apt-get install -y libc6:i386 libstdc++6:i386 glibc-doc:i386 gcc-5-base:i386 gcc-6-base:i386 libgcc1:i386 zip unzip openjdk-8-jdk ant lib32z1 adb phantomjs wget git
 
-RUN mkdir -p /opt/appengine
-RUN wget --no-verbose -O /tmp/appengine.zip https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.68.zip
-RUN unzip -o /tmp/appengine.zip
-RUN mv appengine-java-sdk-1.9.68 /opt/appengine/
+RUN mkdir -p /opt/appengine && wget --no-verbose -O /tmp/appengine.zip https://storage.googleapis.com/appengine-sdks/featured/appengine-java-sdk-1.9.68.zip
+RUN unzip -o /tmp/appengine.zip && mv appengine-java-sdk-1.9.68 /opt/appengine/
 
 RUN update-java-alternatives -s java-1.8.0-openjdk-amd64
 
